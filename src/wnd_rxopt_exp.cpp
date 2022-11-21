@@ -153,7 +153,7 @@ static BOOL onCommand(WPARAM wParam, LPARAM lParam) {
 		rtl->cfg->override_long = (tmp_chklval && tmp_override_long > 0 ? tmp_override_long : 0);
 		rtl->cfg->verbosity = tmp_verbosity;
 		rtl->cfg->out_block_size = (tmp_out_block_size_d512 > 0 ? 512 * tmp_out_block_size_d512 : 0);
-		rtl->cfg->stop_after_successful_events_flag = (tmp_chkstop ? 1 : 0);
+		rtl->cfg->after_successful_events_flag = (tmp_chkstop ? 1 : 0);
 		rtl->cfg->conversion_mode = ((tmp_conversion_mode >= CONVERT_NATIVE && tmp_conversion_mode <= CONVERT_CUSTOMARY) ? (conversion_mode_t)tmp_conversion_mode : CONVERT_NATIVE);
 		EndDialog(hDlg, TRUE);
 		break;
@@ -245,7 +245,7 @@ int ShowExpertDialog(rtl_433_t *rtl_obj, HWND hParent) {
 		tmp_override_long			= (rtl->cfg->override_long > 0 ? rtl->cfg->override_long : -1);
 		tmp_verbosity				= (rtl->cfg->verbosity < 0 ||rtl->cfg->verbosity > 4 ? 4: rtl->cfg->verbosity);
 		tmp_out_block_size_d512		= (rtl->cfg->out_block_size > 0 && rtl->cfg->out_block_size % 512 == 0 ? rtl->cfg->out_block_size / 512 : 0);
-		tmp_chkstop					= (rtl->cfg->stop_after_successful_events_flag > 0);
+		tmp_chkstop					= (rtl->cfg->after_successful_events_flag > 0);
 		tmp_conversion_mode			= ((rtl->cfg->conversion_mode >= CONVERT_NATIVE && rtl->cfg->conversion_mode <= CONVERT_CUSTOMARY) ? rtl->cfg->conversion_mode: -1);
 
 		r = (int) DialogBox(GetModuleHandle(0), MAKEINTRESOURCE(IDD_RX_EXPERT), hParent, (DLGPROC)DialogHandler);

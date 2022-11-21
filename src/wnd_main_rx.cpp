@@ -474,7 +474,7 @@ BOOL RxGui_onCommand(WPARAM wParam, LPARAM lParam) {
 			RefreshRxCfgElements(); // disables ID_RX_FILE menu item while RX is active
 		}
 		else {
-			stop_signal(rx);
+			signal_stop(rx);
 		}
 		break;
 
@@ -698,7 +698,7 @@ BOOL RxGui_shutdownRequest() {
 }
 
 VOID RxGui_shutdownConfirm() {
-	if (rx) stop_signal(rx);
+	if (rx) signal_stop(rx);
 }
 
 BOOL RxGui_isActive(){

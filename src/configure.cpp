@@ -489,7 +489,7 @@ static CfgResult parse_conf_option(r_cfg_t *cfg, int opt, char *arg) {
             Gui_fprintf(stderr, "Max number of frequencies reached %d\n", MAX_FREQS);
         break;
     case 'H':
-        cfg->hop_time = atoi_time(arg, "-H: ");
+        cfg->hop_times = atoi_time(arg, "-H: ");
         break;
     case 'g':
         if (!arg)
@@ -742,7 +742,7 @@ static CfgResult parse_conf_option(r_cfg_t *cfg, int opt, char *arg) {
         strcpy_s(cfg->test_data, sizeof(cfg->test_data), arg);
         break;
     case 'E':
-        cfg->stop_after_successful_events_flag = atobv(arg, 1);
+        cfg->after_successful_events_flag = atobv(arg, 1);
         break;
     default:
         return usage(CFG_EXITCODE_ONE);

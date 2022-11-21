@@ -99,7 +99,7 @@ static void saveToCfg() {
 		rtl->cfg->frequency[a] = (unsigned long) tmp_lvitem.lParam;
 	}
 	rtl->cfg->frequencies = num_entries;
-	rtl->cfg->hop_time = tmp_hoptime;
+	rtl->cfg->hop_times = tmp_hoptime;
 }
 
 static int freqList_clear(int a) {
@@ -302,7 +302,7 @@ int ShowFrequencyRxDialog(rtl_433_t *rtl_obj,HWND hParent, HMENU hPopupMenu) {
 			rtl->cfg->frequencies = 1;
 			rtl->cfg->frequency[0] = DEFAULT_FREQUENCY;
 		}
-		tmp_hoptime = rtl->cfg->hop_time;
+		tmp_hoptime = rtl->cfg->hop_times;
 		if (!tmp_hoptime) tmp_hoptime = DEFAULT_HOP_TIME;
 		r = (int) DialogBox(GetModuleHandle(0), MAKEINTRESOURCE(IDD_RX_FREQ), hParent, (DLGPROC)DialogHandler);
 	}

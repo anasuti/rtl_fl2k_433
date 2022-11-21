@@ -6,3 +6,7 @@
 *.iobj
 *.db
 *.sdf
+*.user
+/vs15/tmp
+/vs15/.vs/*
+/vs15/builds/*
